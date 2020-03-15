@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE library SYSTEM "library.dtd">
+<library name="kittyCompact" basename="kittyCompactBase" openname="kittycompact.library">
+	<include>exec/types.h</include>
+	<include>libraries/kittyCompact.h</include>
+	<interface name="main" version="1.0" struct="kittyCompactIFace" prefix="_kittycompact_" asmprefix="IkittyCompact" global="IkittyCompact">
+		<method name="Obtain" result="ULONG"/>
+		<method name="Release" result="ULONG"/>
+		<method name="Expunge" result="void" status="unimplemented"/>
+		<method name="Clone" result="struct Interface *" status="unimplemented"/>
+		<method name="makeLookupTable" result="char *">
+		</method>
+		<method name="FreeLookupTable" result="void">
+			<arg name="table" type="void *"/>
+		</method>
+		<method name="test" result="int">
+		</method>
+	</interface>
+</library>
+
