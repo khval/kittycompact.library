@@ -5,9 +5,6 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-
-
-
 #ifdef __amigaos4__
 #include <proto/exec.h>
 #include <proto/retroMode.h>

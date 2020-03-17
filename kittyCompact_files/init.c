@@ -158,7 +158,6 @@ BOOL open_lib( const char *name, int ver , const char *iname, int iver, struct L
 	return (*interface) ? TRUE : FALSE;
 }
 
-
 BOOL init()
 {
 	if ( ! open_lib( "dos.library", 53L , "main", 1, &DOSBase, (struct Interface **) &IDOS  ) ) return FALSE;

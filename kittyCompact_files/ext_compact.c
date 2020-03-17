@@ -23,36 +23,28 @@
 #include "stack.h"
 
 #include "kittyErrors.h"
-
 #include "ext_compact.h"
 
-#define kittyError instance->kittyError
-
-struct KittyInstant *core;
 extern void _my_print_text(struct retroScreen *screen, char *text, int maxchars);
 extern struct retroTextWindow *newTextWindow( struct retroScreen *screen, int id );
 extern void freeAllTextWindows(struct retroScreen *screen);
 
-extern struct DOSIFace *IDOS;
-
-#define alloc_private(x) AllocVecTags( x, AVT_Type, MEMF_PRIVATE, AVT_ClearWithValue, 0, TAG_END );
-#define alloc_shared(x) AllocVecTags( x, AVT_Type, MEMF_SHARED, AVT_ClearWithValue, 0, TAG_END );
-#define sys_free(x) FreeVec(x)
-
+#include <amosKittens.h>
 int get_pac_pic_option( struct KittyInstance *instance, int bank_num, unsigned int block_id, int offset);
 
 // palette data for RLE
 static int r[256],g[256],b[256];
 
-// data to image 
-// static unsigned char *data = NULL;
-
 #define get2( pos ) ( (int) (data[pos])*256 + (int) (data[pos+1]))
 #define get4(  pos ) ( ( ( (int) (data[pos])*256 + (int) (data[pos+1]) )*256 + (int) (data[pos+2]) ) * 256 + (int) (data[pos+3]) )
 
+#define kittyError instance->kittyError
 #define api instance -> api
 #define last_var instance -> last_var
 #define cmdTmp instance -> cmdTmp
+
+#define alloc_private(x) AllocVecTags( x , AVT_Type, MEMF_PRIVATE, TAG_END )
+#define alloc_shared(x) AllocVecTags( x , AVT_Type, MEMF_SHARED, TAG_END )
 
 static void getRGB( unsigned char *data, int pos, int *r, int *g, int *b ) 
 { 
@@ -1010,7 +1002,6 @@ char *compactSpack KITTENS_CMD_ARGS
 	return tokenBuffer;
 }
 
-
 char *_compactPack( struct glueCommands *data, int nextToken )
 {
 	int x0=0,y0=0,x1=0,y1=0;
@@ -1056,11 +1047,9 @@ char *_compactPack( struct glueCommands *data, int nextToken )
 	return NULL;
 }
 
-
-char *compactPack KITTENS_CMD_ARGS
+char *compactPack KITTENS_CMD_ARGS 
 {
 	stackCmdNormal( _compactPack, tokenBuffer );
 	return tokenBuffer;
 }
-
 
