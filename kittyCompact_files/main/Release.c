@@ -51,6 +51,6 @@
 
 ULONG _kittycompact_Release(struct kittyCompactIFace *Self)
 {
-    return Self -> Data.RefCount--;
+    return --Self -> Data.RefCount;
 }
 
