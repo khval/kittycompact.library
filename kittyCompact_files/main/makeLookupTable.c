@@ -1,10 +1,10 @@
 /* :ts=4
- *  $VER: makeLookupTable.c $Revision$ (03-Mar-2020)
+ *  $VER: makeLookupTable.c $Revision$ (16-Mar-2020)
  *
  *  This file is part of kittyCompact.
  *
- *  Copyright (c) 2020 Hyperion Entertainment CVBA.
- *  All Rights Reserved.
+ *  Copyright (c) 2020 LiveForIt Software.
+ *  MIT License..
  *
  * $Id$
  *
