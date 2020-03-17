@@ -1,21 +1,21 @@
 VERSION = 53
-REVISION = 1
+REVISION = 2
 
 .macro DATE
-.ascii "3.3.2020"
+.ascii "16.3.2020"
 .endm
 
 .macro VERS
-.ascii "kittyCompact.library 53.1"
+.ascii "kittycompact.library 53.2"
 .endm
 
 .macro VSTRING
-.ascii "kittyCompact.library 53.1 (3.3.2020)"
+.ascii "kittycompact.library 53.2 (16.3.2020)"
 .byte 13,10,0
 .endm
 
 .macro VERSTAG
 .byte 0
-.ascii "$VER: kittyCompact.library 53.1 (3.3.2020)"
+.ascii "$VER: kittycompact.library 53.2 (16.3.2020)"
 .byte 0
 .endm
