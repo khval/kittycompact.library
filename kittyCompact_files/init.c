@@ -152,7 +152,7 @@ BOOL open_lib( const char *name, int ver , const char *iname, int iver, struct L
 	}
 	else
 	{
-	   	IDOS -> Printf("Unable to open the %s %ld!\n",name,ver);
+	   	if (IDOS) IDOS -> Printf("Unable to open the %s %ld!\n",name,ver);
 	}
 
 	return (*interface) ? TRUE : FALSE;
