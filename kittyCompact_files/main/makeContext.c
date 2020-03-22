@@ -1,7 +1,7 @@
 /* :ts=4
- *  $VER: FreeLookupTable.c $Revision$ (16-Mar-2020)
+ *  $VER: makeContext.c $Revision$ (22-Mar-2020)
  *
- *  This file is part of kittyTurbo.
+ *  This file is part of kittyCompact.
  *
  *  Copyright (c) 2020 LiveForIt Software.
  *  MIT License..
@@ -22,21 +22,20 @@
 #include <proto/kittyCompact.h>
 #include <stdarg.h>
 
-/****** kittyCompact/main/FreeLookupTable ******************************************
+/****** kittyCompact/main/makeContext ******************************************
 *
 *   NAME
-*      FreeLookupTable -- Description
+*      makeContext -- Description
 *
 *   SYNOPSIS
-*      struct TokenInfo * FreeLookupTable(void * table);
+*      void makeContext(void);
 *
 *   FUNCTION
 *
 *   INPUTS
-*       table - 
 *
 *   RESULT
-*       The result ...
+*       This function does not return a result
 *
 *   EXAMPLE
 *
@@ -50,8 +49,8 @@
 *
 */
 
-void _kittycompact_FreeLookupTable(struct kittyCompactIFace *Self,  void * table)
+void *_kittycompact_makeContext(struct kittyCompactIFace *Self)
 {
-	FreeVec( table );
+	return NULL;
 }
 

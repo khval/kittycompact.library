@@ -37,7 +37,8 @@ struct kittyCompactIFace
 	struct Interface * APICALL (*Clone)(struct kittyCompactIFace *Self);
 	char * APICALL (*makeLookupTable)(struct kittyCompactIFace *Self);
 	void APICALL (*FreeLookupTable)(struct kittyCompactIFace *Self, void * table);
-	int APICALL (*test)(struct kittyCompactIFace *Self);
+	void * APICALL (*makeContext)(struct kittyCompactIFace *Self);
+	void APICALL (*FreeContext)(struct kittyCompactIFace *Self, void * table);
 };
 
 #ifdef __cplusplus

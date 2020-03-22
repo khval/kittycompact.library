@@ -13,7 +13,10 @@
 		<method name="FreeLookupTable" result="void">
 			<arg name="table" type="void *"/>
 		</method>
-		<method name="test" result="int">
+		<method name="makeContext" result="void *">
+		</method>
+		<method name="FreeContext" result="void">
+			<arg name="table" type="void *"/>
 		</method>
 	</interface>
 </library>

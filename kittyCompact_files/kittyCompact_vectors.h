@@ -19,4 +19,5 @@ extern ULONG                VARARGS68K _kittycompact_Obtain(struct kittyCompactI
 extern ULONG                VARARGS68K _kittycompact_Release(struct kittyCompactIFace *);
 extern char *               VARARGS68K _kittycompact_makeLookupTable(struct kittyCompactIFace *);
 extern void                 VARARGS68K _kittycompact_FreeLookupTable(struct kittyCompactIFace *, void * table);
-extern int                  VARARGS68K _kittycompact_test(struct kittyCompactIFace *);
+extern void *               VARARGS68K _kittycompact_makeContext(struct kittyCompactIFace *);
+extern void                 VARARGS68K _kittycompact_FreeContext(struct kittyCompactIFace *, void * table);

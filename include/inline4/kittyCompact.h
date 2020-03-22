@@ -28,6 +28,7 @@
 /* Inline macros for Interface "main" */
 #define makeLookupTable() IkittyCompact->makeLookupTable() 
 #define FreeLookupTable(table) IkittyCompact->FreeLookupTable((table)) 
-#define test() IkittyCompact->test() 
+#define makeContext() IkittyCompact->makeContext() 
+#define FreeContext(table) IkittyCompact->FreeContext((table)) 
 
 #endif /* INLINE4_KITTYCOMPACT_H */

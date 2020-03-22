@@ -11,7 +11,8 @@ STATIC CONST APTR main_v1_vectors[] =
     NULL,
     _kittycompact_makeLookupTable,
     _kittycompact_FreeLookupTable,
-    _kittycompact_test,
+    _kittycompact_makeContext,
+    _kittycompact_FreeContext,
     (APTR)-1
 };
 

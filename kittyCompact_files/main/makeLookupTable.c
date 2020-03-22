@@ -1,7 +1,7 @@
 /* :ts=4
  *  $VER: makeLookupTable.c $Revision$ (16-Mar-2020)
  *
- *  This file is part of kittyCompact.
+ *  This file is part of kittyTurbo.
  *
  *  Copyright (c) 2020 LiveForIt Software.
  *  MIT License..
