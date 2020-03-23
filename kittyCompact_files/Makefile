@@ -40,7 +40,6 @@ main_SRCS = main/Obtain.c main/Release.c  \
 	main/FreeLookupTable.c \
 	main/makeContext.c \
 	main/FreeContext.c \
-	main/test.c \
 	AmosString.c \
 	stack.c \
 	cmdList.c \

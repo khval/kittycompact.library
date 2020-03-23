@@ -51,7 +51,7 @@
 */
 
 void _kittycompact_FreeContext(struct kittyCompactIFace *Self,
-       void * table)
+       void *context)
 {
 }
 
