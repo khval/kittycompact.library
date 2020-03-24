@@ -78,8 +78,6 @@ void *_kittycompact_makeLookupTable(struct kittyCompactIFace *Self)
 
 	for (cmd=AMOSPro_Compact;cmd -> fn;cmd++)
 	{
-		Printf("%08lx\n",((char *(**) KITTENS_CMD_ARGS) (ptr + cmd -> token)));
-
 		*((char *(**) KITTENS_CMD_ARGS) (ptr + cmd -> token)) = cmd -> fn;
 	}
 
