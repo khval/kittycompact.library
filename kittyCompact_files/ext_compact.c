@@ -234,7 +234,7 @@ void openUnpackedScreen( struct KittyInstance *instance, int screen_num,
 
 	Printf("%s:%ld\n",__FUNCTION__,__LINE__);
 
-	api.engine_lock();
+	api.engineLock();
 
 	Printf("%s:%ld\n",__FUNCTION__,__LINE__);
 
@@ -289,7 +289,7 @@ void openUnpackedScreen( struct KittyInstance *instance, int screen_num,
 	}
 
 	instance -> video -> refreshAllScanlines = TRUE;
-	api.engine_unlock();
+	api.engineUnlock();
 }
 
 bool convertPacPicData( unsigned char *data, int o , struct PacPicContext *context );

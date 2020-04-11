@@ -117,8 +117,7 @@ void close_libs()
 STATIC APTR libExpunge(struct LibraryManagerInterface *Self)
 {
     /* If your library cannot be expunged, return 0 */
-    struct ExecIFace *IExec
-        = (struct ExecIFace *)(*(struct ExecBase **)4)->MainInterface;
+    IExec = (struct ExecIFace *)(*(struct ExecBase **)4)->MainInterface;
     APTR result = (APTR)0;
     struct _Library *libBase = (struct _Library *)Self->Data.LibBase;
     if (libBase->libNode.lib_OpenCnt == 0)
