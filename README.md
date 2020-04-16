@@ -14,4 +14,4 @@ This extension is not enabled by default to enable edit, amosKittens.cpp file on
 
 Only the commands that have a description is implemented.
 
-https://github.com/khval/kittyCompact.library/blob/master/music_commands.md
+https://github.com/khval/kittyCompact.library/blob/master/compact_commands.md
