@@ -9,4 +9,5 @@ My copyright / software license only extends to work on KittyCompact.library, Iâ
 The license chosen, is MIT this so people can contribute to the extension, as well as bundle it with commercial games as binary or as source code. Obviously there is no warranty, and I take no responsibility for any bugs or defects.
 
 **You find the manual here:**
+
 https://github.com/khval/kittyCompact.library/blob/master/compact_commands.md
