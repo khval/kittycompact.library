@@ -1,12 +1,6 @@
 
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#ifdef __amigaos4__
-#include <proto/exec.h>
-#endif
+#ifndef __kittyCompact_h__
+#define __kittyCompact_h__
 
 #define PicPac_screen 0x12031990
 #define PicPac_image 0x06071963
@@ -43,3 +37,4 @@ struct PacPicContext
 	int rrle_bit;
 };
 
+#endif

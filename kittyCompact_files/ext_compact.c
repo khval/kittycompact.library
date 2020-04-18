@@ -5,25 +5,15 @@
 #include <string.h>
 #include <stdint.h>
 #include <stdbool.h>
-
-#ifdef __amigaos4__
 #include <proto/exec.h>
 #include <proto/retroMode.h>
-#endif
-
-#ifdef __linux__
-#include <string.h>
-#include "os/linux/stuff.h"
-#include <retromode.h>
-#include <retromode_lib.h>
-#endif
+#include <libraries/kittyCompact.h>
 
 #include <amosKittens.h>
 #include <amosString.h>
 #include "stack.h"
 
 #include "kittyErrors.h"
-#include "ext_compact.h"
 
 extern void _my_print_text(struct retroScreen *screen, char *text, int maxchars);
 extern struct retroTextWindow *newTextWindow( struct retroScreen *screen, int id );

@@ -39,6 +39,9 @@ struct kittyCompactIFace
 	void APICALL (*FreeLookupTable)(struct kittyCompactIFace *Self, void * table);
 	void * APICALL (*makeContext)(struct kittyCompactIFace *Self);
 	void APICALL (*FreeContext)(struct kittyCompactIFace *Self, void * table);
+	bool APICALL (*convertPacPic)(struct kittyCompactIFace *Self, unsigned char * data, struct PacPicContext * context);
+	bool APICALL (*convertPacPicData)(struct kittyCompactIFace *Self, unsigned char * data, int o, struct PacPicContext * context);
+	void APICALL (*plotUnpackedContext)(struct kittyCompactIFace *Self, struct PacPicContext * context, struct retroScreen * screen, int x, int y);
 };
 
 #ifdef __cplusplus

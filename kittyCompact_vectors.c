@@ -13,6 +13,9 @@ STATIC CONST APTR main_v1_vectors[] =
     _kittycompact_FreeLookupTable,
     _kittycompact_makeContext,
     _kittycompact_FreeContext,
+    _kittycompact_convertPacPic,
+    _kittycompact_convertPacPicData,
+    _kittycompact_plotUnpackedContext,
     (APTR)-1
 };
 

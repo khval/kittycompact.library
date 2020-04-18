@@ -18,6 +18,9 @@ STRUCTURE kittyCompactIFace, InterfaceData_SIZE
 	    FPTR IkittyCompact_FreeLookupTable
 	    FPTR IkittyCompact_makeContext
 	    FPTR IkittyCompact_FreeContext
+	    FPTR IkittyCompact_convertPacPic
+	    FPTR IkittyCompact_convertPacPicData
+	    FPTR IkittyCompact_plotUnpackedContext
 	LABEL kittyCompactIFace_SIZE
 
 #endif

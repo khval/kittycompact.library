@@ -1,5 +1,5 @@
 /* :ts=4
- *  $VER: makeContext.c $Revision$ (22-Mar-2020)
+ *  $VER: convertPacPic.c $Revision$ (18-Apr-2020)
  *
  *  This file is part of kittyCompact.
  *
@@ -14,28 +14,33 @@
  */
 
 #include <stdbool.h>
+
+#include <stdbool.h>
+
 #include <exec/exec.h>
 #include <proto/exec.h>
 #include <dos/dos.h>
 #include <exec/types.h>
 #include <libraries/kittyCompact.h>
-#include <proto/kittyCompact.h>
 #include <stdarg.h>
 
-/****** kittyCompact/main/makeContext ******************************************
+/****** kittyCompact/main/convertPacPic ******************************************
 *
 *   NAME
-*      makeContext -- Description
+*      convertPacPic -- Description
 *
 *   SYNOPSIS
-*      void makeContext(void);
+*      bool convertPacPic(unsigned char * data, 
+*          struct PacPicContext * context);
 *
 *   FUNCTION
 *
 *   INPUTS
+*       data - 
+*       context - 
 *
 *   RESULT
-*       This function does not return a result
+*       The result ...
 *
 *   EXAMPLE
 *
@@ -49,8 +54,8 @@
 *
 */
 
-void *_kittycompact_makeContext(struct kittyCompactIFace *Self)
+bool _kittycompact_convertPacPic(struct kittyCompactIFace *Self,  unsigned char * data,  struct PacPicContext * context)
 {
-	return NULL;
+  return convertPacPic(data, context);
 }
 

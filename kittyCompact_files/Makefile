@@ -40,10 +40,10 @@ main_SRCS = main/Obtain.c main/Release.c  \
 	main/FreeLookupTable.c \
 	main/makeContext.c \
 	main/FreeContext.c \
-	AmosString.c \
-	stack.c \
-	cmdList.c \
-	ext_compact.c
+	main/convertPacPic.c \
+	main/convertPacPicData.c \
+	main/plotUnpackedContext.c \
+	AmosString.c stack.c cmdList.c ext_compact.c 
 
 # -------------------------------------------------------------
 # Nothing should need changing below this line

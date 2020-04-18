@@ -18,6 +18,21 @@
 		<method name="FreeContext" result="void">
 			<arg name="table" type="void *"/>
 		</method>
+		<method name="convertPacPic" result="bool">
+			<arg name="data" type="unsigned char *"/>
+			<arg name="context" type="struct PacPicContext *"/>
+		</method>
+		<method name="convertPacPicData" result="bool">
+			<arg name="data" type="unsigned char *"/>
+			<arg name="o" type="int"/>
+			<arg name="context" type="struct PacPicContext *"/>
+		</method>
+		<method name="plotUnpackedContext" result="void">
+			<arg name="context" type="struct PacPicContext *"/>
+			<arg name="screen" type="struct retroScreen *"/>
+			<arg name="x" type="int"/>
+			<arg name="y" type="int"/>
+		</method>
 	</interface>
 </library>
 

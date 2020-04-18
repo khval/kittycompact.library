@@ -13,7 +13,7 @@
  *
  */
 
-
+#include <stdbool.h>
 #include <exec/exec.h>
 #include <proto/exec.h>
 #include <proto/dos.h>
@@ -21,6 +21,7 @@
 #include <exec/types.h>
 #include <libraries/kittyCompact.h>
 #include <proto/kittyCompact.h>
+#include <proto/retroMode.h>
 
 #include <stdarg.h>
 
@@ -38,7 +39,7 @@ struct _Library
 struct ExecIFace *IExec UNUSED = NULL;
 
 struct NewlibIFace * INewlib = NULL;
-struct retroIFace * IRetroMode = NULL;
+struct RetroModeIFace * IRetroMode = NULL;
 struct DOSIFace *IDOS = NULL;
 
 struct Library *NewLibBase = NULL;

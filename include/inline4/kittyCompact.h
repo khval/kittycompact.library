@@ -30,5 +30,8 @@
 #define FreeLookupTable(table) IkittyCompact->FreeLookupTable((table)) 
 #define makeContext() IkittyCompact->makeContext() 
 #define FreeContext(table) IkittyCompact->FreeContext((table)) 
+#define convertPacPic(data, context) IkittyCompact->convertPacPic((data), (context)) 
+#define convertPacPicData(data, o, context) IkittyCompact->convertPacPicData((data), (o), (context)) 
+#define plotUnpackedContext(context, screen, x, y) IkittyCompact->plotUnpackedContext((context), (screen), (x), (y)) 
 
 #endif /* INLINE4_KITTYCOMPACT_H */

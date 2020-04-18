@@ -21,3 +21,6 @@ extern char *               VARARGS68K _kittycompact_makeLookupTable(struct kitt
 extern void                 VARARGS68K _kittycompact_FreeLookupTable(struct kittyCompactIFace *, void * table);
 extern void *               VARARGS68K _kittycompact_makeContext(struct kittyCompactIFace *);
 extern void                 VARARGS68K _kittycompact_FreeContext(struct kittyCompactIFace *, void * table);
+extern bool                 VARARGS68K _kittycompact_convertPacPic(struct kittyCompactIFace *, unsigned char * data, struct PacPicContext * context);
+extern bool                 VARARGS68K _kittycompact_convertPacPicData(struct kittyCompactIFace *, unsigned char * data, int o, struct PacPicContext * context);
+extern void                 VARARGS68K _kittycompact_plotUnpackedContext(struct kittyCompactIFace *, struct PacPicContext * context, struct retroScreen * screen, int x, int y);
