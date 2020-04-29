@@ -131,7 +131,7 @@ void plotUnpackedContext( struct PacPicContext *context, struct retroScreen *scr
 	int x,y,d;
 	int planeOffset;
 
-	Printf("plotUnpackedContext( context %08lx, screen %08x, x0 %ld, y0 %ld)\n",	context, screen, x0,y0);
+	Printf("plotUnpackedContext( context %08lx, screen %08lx, x0 %ld, y0 %ld)\n",	context, screen, x0,y0);
 
 	{
 		int imageWidth = context -> w * 8;
