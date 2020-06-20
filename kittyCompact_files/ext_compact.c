@@ -228,7 +228,11 @@ void openUnpackedScreen( struct KittyInstance *instance, int screen_num,
 
 	Printf("%s:%s:%ld\n",__FILE__,__FUNCTION__,__LINE__);
 
-	screen = instance -> screens[screen_num] = retroOpenScreen(context -> w * 8, context -> h * context -> ll, videomode );
+	// ------------------------------- this is bad !!!!!!
+
+//	screen = instance -> screens[screen_num] = retroOpenScreen(context -> w * 8, context -> h * context -> ll, videomode );
+
+	screen = instance -> screens[screen_num] = retroOpenScreen(context -> screen_width, context -> screen_height, videomode );
 
 	if (screen)
 	{
@@ -297,6 +301,12 @@ bool convertPacPic( unsigned char *data, struct PacPicContext *context )
 
 	Printf("convertPacPic( data %08lx, context %08lx )\n" , data, context );
 
+	context -> screen_width = 0;
+	context -> screen_height = 0;
+
+	context -> offset_x = 0;
+	context -> offset_y = 0;
+
 	context -> scanline_x = 128;
 	context -> scanline_y = 50;
 
@@ -305,8 +315,19 @@ bool convertPacPic( unsigned char *data, struct PacPicContext *context )
 	if( get4(o) == PicPac_screen )
 	{
 		int i;
+
+		// screen size
+		context -> screen_width = get2(o+4);
+		context -> screen_height = get2(o+6);
+
+		// screen display
 		context -> scanline_x = get2(o+8);
 		context -> scanline_y = get2(o+10);
+
+		// screen offset
+		context -> offset_x = get2(o+16);
+		context -> offset_y = get2(o+18);
+
 		context -> mode = get2(o+20);
 
 		Printf("%s:%ld\n",__FUNCTION__,__LINE__);

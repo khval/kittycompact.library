@@ -10,8 +10,14 @@ struct PacPicContext
 {
 	// for when uncompressing or when compressing.
 
+	int screen_width;
+	int screen_height;
+
 	int scanline_x;
 	int scanline_y;
+
+	int offset_x;
+	int offset_y;
 
 	int w;
 	int h;
