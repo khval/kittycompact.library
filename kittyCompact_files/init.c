@@ -110,6 +110,7 @@ void close_libs()
 {
 	struct ExecIFace *IExec = (struct ExecIFace *)(*(struct ExecBase **)4)->MainInterface;
 	close_lib( DOSBase, IDOS);
+	close_lib( NewLibBase, INewlib);
 	close_lib( RetroModeBase, IRetroMode);
 }
 
@@ -161,6 +162,7 @@ BOOL open_lib( const char *name, int ver , const char *iname, int iver, struct L
 BOOL init()
 {
 	if ( ! open_lib( "dos.library", 53L , "main", 1, &DOSBase, (struct Interface **) &IDOS  ) ) return FALSE;
+	if ( ! open_lib( "newlib.library", 53L , "main", 1, &NewLibBase, (struct Interface **) &INewlib  ) ) return FALSE;
 	if ( ! open_lib( "retromode.library", 1L , "main", 1, &RetroModeBase, (struct Interface **) &IRetroMode  ) ) return FALSE;
 
 	return TRUE;
