@@ -206,7 +206,7 @@ void openUnpackedScreen( struct KittyInstance *instance, int screen_num,
 	// mode & 0x0004 is Laced
 	// mode = $6A00 is HAM6
 
-	Printf("%s:%ld\n",__FUNCTION__,__LINE__);
+	Printf("%s:%s:%ld\n",__FILE__,__FUNCTION__,__LINE__);
 
 	videomode = 0;
 	if (context -> mode & 0x0004) videomode |= retroInterlaced;
@@ -222,11 +222,11 @@ void openUnpackedScreen( struct KittyInstance *instance, int screen_num,
 
 	if ( (context -> mode & 0x7000) == 0x6000 ) videomode |= retroHam6;
 
-	Printf("%s:%ld\n",__FUNCTION__,__LINE__);
+	Printf("%s:%s:%ld\n",__FILE__,__FUNCTION__,__LINE__);
 
 	api.engineLock();
 
-	Printf("%s:%ld\n",__FUNCTION__,__LINE__);
+	Printf("%s:%s:%ld\n",__FILE__,__FUNCTION__,__LINE__);
 
 	screen = instance -> screens[screen_num] = retroOpenScreen(context -> w * 8, context -> h * context -> ll, videomode );
 
@@ -234,7 +234,7 @@ void openUnpackedScreen( struct KittyInstance *instance, int screen_num,
 	{
 		instance -> current_screen = screen_num;
 
-	Printf("%s:%ld\n",__FUNCTION__,__LINE__);
+	Printf("%s:%s:%ld\n",__FILE__,__FUNCTION__,__LINE__);
 
 		retroApplyScreen( screen, instance -> video, (context -> scanline_x-128)*2 , (context -> scanline_y -50)*2,	screen -> realWidth,screen->realHeight );
 
@@ -250,18 +250,18 @@ void openUnpackedScreen( struct KittyInstance *instance, int screen_num,
 			screen -> currentTextWindow = textWindow;
 		}
 
-	Printf("%s:%ld\n",__FUNCTION__,__LINE__);
+	Printf("%s:%s:%ld\n",__FILE__,__FUNCTION__,__LINE__);
 
 		for (n=0;n<colors;n++)	
 		{
 			retroScreenColor( screen, n,r[n],g[n],b[n]);
 		}
 
-	Printf("%s:%ld\n",__FUNCTION__,__LINE__);
+	Printf("%s:%s:%ld\n",__FILE__,__FUNCTION__,__LINE__);
 
 		retroBAR( screen, 0, 0,0, screen -> realWidth,screen->realHeight, screen -> paper );
 
-	Printf("%s:%ld\n",__FUNCTION__,__LINE__);
+	Printf("%s:%s:%ld\n",__FILE__,__FUNCTION__,__LINE__);
 
 		plotUnpackedContext( context, screen, 0,0 );
 

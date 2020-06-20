@@ -61,6 +61,6 @@ void _kittycompact_plotUnpackedContext(struct kittyCompactIFace *Self,
        int x,
        int y)
 {
-  plotUnpackedContext(context, screen, x, y);
+	plotUnpackedContext(context, screen, x, y);
 }
 
