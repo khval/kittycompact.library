@@ -454,7 +454,7 @@ int get_pac_pic_option( struct KittyInstance *instance, int bank_num, unsigned i
 	unsigned char *ptr;
 	unsigned int this_id;
 
-	bank = api.findBank(bank_num);
+	bank = api.findBankById(bank_num);
 	if (bank)
 	{
 		int o=0;
@@ -489,7 +489,7 @@ void unpack( struct KittyInstance *instance, struct glueCommands *data, int bank
 
 	x0 -= x0 %8; 
 
-	bank = api.findBank(bank_num);
+	bank = api.findBankById(bank_num);
 	if (bank)
 	{
 		if (bank -> start)
