@@ -12,6 +12,7 @@
 #include <amosKittens.h>
 #include <amosString.h>
 #include "stack.h"
+#include "debug.h"
 
 #include "kittyErrors.h"
 
@@ -89,7 +90,7 @@ void _cd(unsigned char d)
 /*
 	if (d_data[d_data_pos] != d)
 	{
-		printf("DATA pos %d, expected %02x, got %02X\n",d_data_pos,d_data[d_data_pos],d);
+		proc_names_printf("DATA pos %d, expected %02x, got %02X\n",d_data_pos,d_data[d_data_pos],d);
 		getchar();
 	}
 */
@@ -101,7 +102,7 @@ void _crle(unsigned char d)
 /*
 	if (d_rle[d_rle_pos] != d)
 	{
-		printf("RLE pos %d, expected %02x, got %02X\n",d_rle_pos,d_rle[d_rle_pos],d);
+		proc_names_printf("RLE pos %d, expected %02x, got %02X\n",d_rle_pos,d_rle[d_rle_pos],d);
 		getchar();
 	}
 */
@@ -113,7 +114,7 @@ void _crrle(unsigned char d)
 /*
 	if (d_rrle[d_rle_pos] != d)
 	{
-		printf("RRLE pos %d, expected %02x, got %02X\n",d_rrle_pos,d_rrle[d_rrle_pos],d);
+		proc_names_printf("RRLE pos %d, expected %02x, got %02X\n",d_rrle_pos,d_rrle[d_rrle_pos],d);
 		getchar();
 	}
 */
@@ -131,7 +132,7 @@ void plotUnpackedContext( struct PacPicContext *context, struct retroScreen *scr
 	int x,y,d;
 	int planeOffset;
 
-	Printf("plotUnpackedContext( context %08lx, screen %08lx, x0 %ld, y0 %ld)\n",	context, screen, x0,y0);
+	proc_names_printf("plotUnpackedContext( context %08x, screen %08x, x0 %d, y0 %d)\n",	context, screen, x0,y0);
 
 	{
 		int imageWidth = context -> w * 8;
@@ -206,7 +207,7 @@ void openUnpackedScreen( struct KittyInstance *instance, int screen_num,
 	// mode & 0x0004 is Laced
 	// mode = $6A00 is HAM6
 
-	Printf("%s:%s:%ld\n",__FILE__,__FUNCTION__,__LINE__);
+	proc_names_printf("%s:%s:%d\n",__FILE__,__FUNCTION__,__LINE__);
 
 	videomode = 0;
 	if (context -> mode & 0x0004) videomode |= retroInterlaced;
@@ -222,11 +223,7 @@ void openUnpackedScreen( struct KittyInstance *instance, int screen_num,
 
 	if ( (context -> mode & 0x7000) == 0x6000 ) videomode |= retroHam6;
 
-	Printf("%s:%s:%ld\n",__FILE__,__FUNCTION__,__LINE__);
-
 	api.engineLock();
-
-	Printf("%s:%s:%ld\n",__FILE__,__FUNCTION__,__LINE__);
 
 	// ------------------------------- this is bad !!!!!!
 
@@ -237,8 +234,6 @@ void openUnpackedScreen( struct KittyInstance *instance, int screen_num,
 	if (screen)
 	{
 		instance -> current_screen = screen_num;
-
-	Printf("%s:%s:%ld\n",__FILE__,__FUNCTION__,__LINE__);
 
 		retroApplyScreen( screen, instance -> video, (context -> scanline_x-128)*2 , (context -> scanline_y -50)*2,	screen -> realWidth,screen->realHeight );
 
@@ -254,18 +249,12 @@ void openUnpackedScreen( struct KittyInstance *instance, int screen_num,
 			screen -> currentTextWindow = textWindow;
 		}
 
-	Printf("%s:%s:%ld\n",__FILE__,__FUNCTION__,__LINE__);
-
 		for (n=0;n<colors;n++)	
 		{
 			retroScreenColor( screen, n,r[n],g[n],b[n]);
 		}
 
-	Printf("%s:%s:%ld\n",__FILE__,__FUNCTION__,__LINE__);
-
 		retroBAR( screen, 0, 0,0, screen -> realWidth,screen->realHeight, screen -> paper );
-
-	Printf("%s:%s:%ld\n",__FILE__,__FUNCTION__,__LINE__);
 
 		plotUnpackedContext( context, screen, 0,0 );
 
@@ -299,7 +288,7 @@ bool convertPacPic( unsigned char *data, struct PacPicContext *context )
 	d_rrle_pos = 0;
 #endif
 
-	Printf("convertPacPic( data %08lx, context %08lx )\n" , data, context );
+	proc_names_printf("convertPacPic( data %08x, context %08x )\n" , data, context );
 
 	context -> screen_width = 0;
 	context -> screen_height = 0;
@@ -310,7 +299,6 @@ bool convertPacPic( unsigned char *data, struct PacPicContext *context )
 	context -> scanline_x = 128;
 	context -> scanline_y = 50;
 
-	Printf("%s:%ld\n",__FUNCTION__,__LINE__);
 
 	if( get4(o) == PicPac_screen )
 	{
@@ -330,27 +318,18 @@ bool convertPacPic( unsigned char *data, struct PacPicContext *context )
 
 		context -> mode = get2(o+20);
 
-		Printf("%s:%ld\n",__FUNCTION__,__LINE__);
-
 		// fetch palette
 		for( i=0; i<32; ++i )
 		{ 
 			getRGB( data, o+26+i*2, r+i,g+i,b+i ); 
 		}
 		o+=90;
-
-		Printf("%s:%ld\n",__FUNCTION__,__LINE__);
-
 	}
-
-	Printf("%s:%ld\n",__FUNCTION__,__LINE__);
 
 	if( get4(o) != PicPac_image )
 	{
 		return false;
 	}
-
-	Printf("%s:%ld\n",__FUNCTION__,__LINE__);
 
 	return convertPacPicData( data, o , context );
 }
@@ -545,9 +524,6 @@ char *_compactUnpack(  struct glueCommands *data, int nextToken )
 	int x0 = 0, y0 = 0;
 	struct KittyInstance *instance = data -> instance ;
 	int args = instance -> stack - data -> stack  +1;
-
-	Printf("args %ld\n", args);
-	Printf("instance %08lx\n", instance);
 
 	switch (args)
 	{
