@@ -16,6 +16,7 @@ STATIC CONST APTR main_v1_vectors[] =
     _kittycompact_convertPacPic,
     _kittycompact_convertPacPicData,
     _kittycompact_plotUnpackedContext,
+    _kittycompact_plotUnpackedContextClip,
     (APTR)-1
 };
 

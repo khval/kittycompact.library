@@ -21,6 +21,7 @@ STRUCTURE kittyCompactIFace, InterfaceData_SIZE
 	    FPTR IkittyCompact_convertPacPic
 	    FPTR IkittyCompact_convertPacPicData
 	    FPTR IkittyCompact_plotUnpackedContext
+	    FPTR IkittyCompact_plotUnpackedContextClip
 	LABEL kittyCompactIFace_SIZE
 
 #endif

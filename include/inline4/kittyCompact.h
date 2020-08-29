@@ -33,5 +33,6 @@
 #define convertPacPic(data, context) IkittyCompact->convertPacPic((data), (context)) 
 #define convertPacPicData(data, o, context) IkittyCompact->convertPacPicData((data), (o), (context)) 
 #define plotUnpackedContext(context, screen, x, y) IkittyCompact->plotUnpackedContext((context), (screen), (x), (y)) 
+#define plotUnpackedContextClip(context, screen, x, y, clip) IkittyCompact->plotUnpackedContextClip((context), (screen), (x), (y), (clip)) 
 
 #endif /* INLINE4_KITTYCOMPACT_H */

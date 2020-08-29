@@ -56,10 +56,7 @@
 */
 
 void _kittycompact_plotUnpackedContext(struct kittyCompactIFace *Self,
-       struct PacPicContext * context,
-       struct retroScreen * screen,
-       int x,
-       int y)
+       struct PacPicContext * context, struct retroScreen * screen, int x, int y)
 {
 	plotUnpackedContext(context, screen, x, y);
 }

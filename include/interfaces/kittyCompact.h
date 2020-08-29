@@ -42,6 +42,7 @@ struct kittyCompactIFace
 	bool APICALL (*convertPacPic)(struct kittyCompactIFace *Self, unsigned char * data, struct PacPicContext * context);
 	bool APICALL (*convertPacPicData)(struct kittyCompactIFace *Self, unsigned char * data, int o, struct PacPicContext * context);
 	void APICALL (*plotUnpackedContext)(struct kittyCompactIFace *Self, struct PacPicContext * context, struct retroScreen * screen, int x, int y);
+	void APICALL (*plotUnpackedContextClip)(struct kittyCompactIFace *Self, struct PacPicContext * context, struct retroScreen * screen, int x, int y, struct Rectangle * clip);
 };
 
 #ifdef __cplusplus

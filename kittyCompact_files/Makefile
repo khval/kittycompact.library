@@ -43,6 +43,7 @@ main_SRCS = main/Obtain.c main/Release.c  \
 	main/convertPacPic.c \
 	main/convertPacPicData.c \
 	main/plotUnpackedContext.c \
+	main/plotUnpackedContextClip.c \
 	AmosString.c stack.c cmdList.c ext_compact.c 
 
 # -------------------------------------------------------------

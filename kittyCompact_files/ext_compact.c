@@ -163,6 +163,54 @@ void plotUnpackedContext( struct PacPicContext *context, struct retroScreen *scr
 	}
 }
 
+void plotUnpackedContextClip( struct PacPicContext *context, struct retroScreen *screen, int x0, int y0, struct Rectangle * clip )
+{
+	int row;
+	int byte;
+	int bit;
+	int color;
+	int x,y,d;
+	int planeOffset;
+
+	proc_names_printf("plotUnpackedContext( context %08x, screen %08x, x0 %d, y0 %d)\n", context, screen, x0,y0);
+
+	{
+		int imageWidth = context -> w * 8;
+		int imageHeight = context -> h * context -> ll;
+		int bytesPerPlan = context -> w * imageHeight;
+		unsigned char *mem = screen -> Memory[0];
+		int _minY;
+		int dy;
+
+		dy = y0 - clip -> MinY;
+		_minY = (dy<0) ? -dy : 0;
+
+		dy = clip -> MaxY - (y0 + imageHeight);
+		if (dy<0) imageHeight += dy;
+
+		for ( y=_minY; y < imageHeight; y++)
+		{
+			row = context -> w * y;
+
+			for ( x=0; x < imageWidth; x++)
+			{
+				byte = x / 8;
+				bit = 0x80 >> (x&7);
+				planeOffset = 0;
+
+				color = 0;
+				for ( d=0;d<context -> d;d++)
+				{
+					color += context -> raw[ row + byte + planeOffset ] & bit ? 1<<d: 0 ;
+					planeOffset += bytesPerPlan;
+				}
+
+				retroPixel( screen, mem, x +x0,y +y0, color );	
+			}
+		}
+	}
+}
+
 unsigned int toAmosMode(int retromode)
 {
 	int mode = 0;

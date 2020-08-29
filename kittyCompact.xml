@@ -33,6 +33,13 @@
 			<arg name="x" type="int"/>
 			<arg name="y" type="int"/>
 		</method>
+		<method name="plotUnpackedContextClip" result="void">
+			<arg name="context" type="struct PacPicContext *"/>
+			<arg name="screen" type="struct retroScreen *"/>
+			<arg name="x" type="int"/>
+			<arg name="y" type="int"/>
+			<arg name="clip" type="struct Rectangle *"/>
+		</method>
 	</interface>
 </library>
 
